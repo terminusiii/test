@@ -10,7 +10,8 @@ int main() {
 	koe.value = 100;
 
 	printf("class1 value is %d\r\n", koe.value);
-	printf("class1 method output is %d\r\n", koe.method1(koe.value));
+	printf("class1 method1 output is %d\r\n", koe.method1(koe.value));
+	printf("class1 method2 output is %d\r\n", koe.method2(koe.value));
 
 	std::string tmp = "Hello";
 	tmp += " String";
