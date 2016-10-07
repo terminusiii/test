@@ -1,0 +1,29 @@
+# Compiles windows exe out of GCC project.
+# app.exe so Windows recognizes it
+# -static and -lpthread so exe will contain needed libraries to run on 
+# Windows
+
+# Specify compiler
+CC=x86_64-w64-mingw32-gcc -g
+
+# Specify linker
+LINK=x86_64-w64-mingw32-gcc -static -lpthread
+
+.PHONY : all
+all : app
+
+# Link object files into a binary
+app : main.o class1.o
+	$(LINK) -o app.exe main.o class1.o -lstdc++
+
+# Compile the source file to object files
+main.o : main.cpp
+	$(CC) -c main.cpp -o main.o
+
+class1.o : class1.cpp
+	$(CC) -c class1.cpp -o class1.o
+
+# Clean target
+.PHONY : clean
+clean :
+	rm main.o class1.o app
