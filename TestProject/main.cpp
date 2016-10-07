@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <cstdio>
 
 #include "class1.h"
 
@@ -31,5 +32,22 @@ int main() {
 		printf("%d\r\n", *iter);
 	}
 	
+	FILE* pFile = fopen("myfile.txt", "w");
+	if (pFile != NULL) {
+		fputs("Testing Linux file write\r\n", pFile);
+		fclose(pFile);
+	}
+
+	pFile = fopen("myfile.txt", "r");
+	if (pFile != NULL) {
+		char buffer[128];
+
+		if (fgets(buffer, 128, pFile) != NULL) {
+			printf("Contents of myfile.txt : \r\n");
+			printf("%s", buffer);
+		}
+		fclose(pFile);
+	}
+
 	return 0;
 }

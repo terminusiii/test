@@ -1,5 +1,5 @@
 # Specify compiler
-CC=gcc
+CC=gcc -g
 
 # Specify linker
 LINK=gcc
