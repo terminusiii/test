@@ -4,7 +4,8 @@
 # Windows
 
 # Specify compiler
-CC=x86_64-w64-mingw32-gcc -g
+CC=x86_64-w64-mingw32-gcc
+CCFLAGS1 = -g
 
 # Specify linker
 LINK=x86_64-w64-mingw32-gcc -static -lpthread
@@ -18,12 +19,12 @@ app : main.o class1.o
 
 # Compile the source file to object files
 main.o : main.cpp
-	$(CC) -c main.cpp -o main.o
+	$(CC) $(CCFLAGS) -c main.cpp -o main.o
 
 class1.o : class1.cpp
-	$(CC) -c class1.cpp -o class1.o
+	$(CC) $(CCFLAGS) -c class1.cpp -o class1.o
 
 # Clean target
 .PHONY : clean
 clean :
-	rm main.o class1.o app
+	rm main.o class1.o app.exe

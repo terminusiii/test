@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <cstdio>
 
@@ -31,7 +32,7 @@ int main() {
 	for (iter = testVector.begin(); iter != testVector.end(); iter++) {
 		printf("%d\r\n", *iter);
 	}
-	
+
 	FILE* pFile = fopen("myfile.txt", "w");
 	if (pFile != NULL) {
 		fputs("Testing Linux file write\r\n", pFile);
@@ -49,5 +50,15 @@ int main() {
 		fclose(pFile);
 	}
 
+	char buffer2[128];
+
+	while (scanf("%s", buffer2)) {
+		printf("%s", buffer2);
+
+		if (strcmp(buffer2, "quit") == 0) {
+			break;
+		}
+	}
+	
 	return 0;
 }
