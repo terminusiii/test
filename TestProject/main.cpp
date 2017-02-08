@@ -83,7 +83,7 @@ void printFile(std::string filename)
 	}
 }
 
-void waitForQuit() {
+void waitForCommand() {
 
 	char buffer2[128];
 
@@ -92,6 +92,10 @@ void waitForQuit() {
 
 		if (strcmp(buffer2, "quit") == 0) {
 			break;
+		}
+
+		if (strcmp(buffer2, "kiss") == 0) {
+			printf("You get a big moist kiss back!\r\n");
 		}
 	}
 }
@@ -147,7 +151,7 @@ int main() {
 	printFile(filename);
 	printf("Can you see me\r\n");
 
-	waitForQuit();
+	waitForCommand();
 
 	return 0;
 }
