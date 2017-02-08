@@ -2,14 +2,14 @@
 CC=gcc -g
 
 # Specify linker
-LINK=gcc
+LINK=gcc -static -lpthread
 
 .PHONY : all
 all : app
 
 # Link object files into a binary
-app : main.o class1.o
-	$(LINK) -o app main.o class1.o -lstdc++
+app : main.o class1.o class2.o
+	$(LINK) -o app main.o class1.o class2.o -lstdc++
 
 # Compile the source file to object files
 main.o : main.cpp
@@ -18,7 +18,10 @@ main.o : main.cpp
 class1.o : class1.cpp
 	$(CC) -c class1.cpp -o class1.o
 
+class2.o : class2.cpp
+	$(CC) -c class2.cpp -o class2.o
+
 # Clean target
 .PHONY : clean
 clean :
-	rm main.o class1.o app
+	rm main.o class1.o class2.o app

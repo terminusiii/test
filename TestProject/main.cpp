@@ -2,9 +2,66 @@
 #include <string>
 #include <cstring>
 #include <vector>
+#include <deque>
 #include <cstdio>
 
 #include "class1.h"
+#include "class2.h"
+
+void testClass2()
+{
+	printf("Testing Class2 ->\r\n");
+
+	class2 tmp2;
+	printf("Class2 method 1 : %d\r\n" , tmp2.method1(100));
+
+	std::string name = "Janne";
+	printf("Class2 method 2 input 1 = %s output = %s \r\n", name.c_str(), (tmp2.method2(name)).c_str() );
+
+	std::string name2 = "Jean";
+	printf("Class2 method 3 input 1 = %s output = %s \r\n", name2.c_str(), (tmp2.method3(name)).c_str());
+
+	std::string name3 = "Jippu";
+	std::string result3 = tmp2.method3(name3);
+	printf("Method 3 again. Output : %s\r\n", result3.c_str());
+
+	printf("<- Testing Class2\r\n");
+}
+
+void printVector()
+{
+	printf("printVector Start -> \r\n");
+
+	std::vector<std::string> tmp;
+
+	tmp.push_back(std::string("Moi"));
+	tmp.push_back(std::string("Taas"));
+
+	while(tmp.size() != 0){
+		std::string last = tmp.back();
+		tmp.pop_back();
+		printf("%s\r\n", last.c_str());
+	}
+
+	printf("<- printVector End \r\n");
+}
+void printDeque()
+{
+	printf("printDeque Start -> \r\n");
+
+	std::deque<std::string> tmp;
+
+	tmp.push_back(std::string("Moi"));
+	tmp.push_back(std::string("Taas"));
+
+	while(tmp.size() != 0){
+		std::string first = tmp.front();
+		tmp.pop_front();
+		printf("%s\r\n", first.c_str());
+	}
+
+	printf("<- printDeque End \r\n");
+}
 
 void printFile(std::string filename)
 {
@@ -24,6 +81,9 @@ void printFile(std::string filename)
 		}
 		fclose(pFile);
 	}
+}
+
+void waitForQuit() {
 
 	char buffer2[128];
 
@@ -37,6 +97,11 @@ void printFile(std::string filename)
 }
 
 int main() {
+
+	printf("*******************\r\n");
+	printf("*** THE PROGRAM ***\r\n");
+	printf("*******************\r\n");
+	printf("\r\n");
 
 	class1 koe;
 	koe.value = 100;
@@ -52,6 +117,8 @@ int main() {
 
 	printf("Hello!\r\n");
 	printf("%s\r\n", tmp.c_str());
+
+	testClass2();
 
 	std::vector<int> testVector;
 	testVector.push_back(1);
@@ -73,8 +140,14 @@ int main() {
 	printf("Finished printing stuff\r\n");
 
 	std::string filename = "myfile.txt";
-	
+
+	printVector();	
+	printDeque();
+
 	printFile(filename);
+	printf("Can you see me\r\n");
+
+	waitForQuit();
 
 	return 0;
 }
