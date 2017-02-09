@@ -14,8 +14,8 @@ LINK=x86_64-w64-mingw32-gcc -static -lpthread
 all : app
 
 # Link object files into a binary
-app : main.o class1.o class2.o
-	$(LINK) -o app.exe main.o class1.o class2.o -lstdc++
+app : main.o class1.o class2.o crossdresser.o
+	$(LINK) -o app.exe main.o class1.o class2.o crossdresser.o -lstdc++
 
 # Compile the source file to object files
 main.o : main.cpp
@@ -27,7 +27,10 @@ class1.o : class1.cpp
 class2.o : class2.cpp
 	$(CC) $(CCFLAGS) -c class2.cpp -o class2.o
 
+crossdresser.o : crossdresser.cpp
+	$(CC) $(CCFLAGS) -c crossdresser.cpp -o crossdresser.o
+
 # Clean target
 .PHONY : clean
 clean :
-	rm main.o class1.o class2.o app.exe
+	rm main.o class1.o class2.o crossdresser.o app.exe
