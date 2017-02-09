@@ -7,6 +7,19 @@
 
 #include "class1.h"
 #include "class2.h"
+#include "crossdresser.h"
+
+void testCrossdresser()
+{
+	printf("Testing crossdresser -> \r\n");
+
+	Crossdresser tmp;
+
+	string speakOutput = tmp.Speak();
+	printf("Crossdresser Speak() output : %s \r\n", speakOutput.c_str());
+
+	printf("<- Testing crossdresser \r\n");
+}
 
 void testClass2()
 {
@@ -123,6 +136,8 @@ int main() {
 	printf("%s\r\n", tmp.c_str());
 
 	testClass2();
+
+	testCrossdresser();
 
 	std::vector<int> testVector;
 	testVector.push_back(1);
