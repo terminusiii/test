@@ -102,9 +102,9 @@ void waitForCommand() {
 
 int main() {
 
-	printf("*******************\r\n");
-	printf("*** THE PROGRAM ***\r\n");
-	printf("*******************\r\n");
+	printf("************************\r\n");
+	printf("*** THE PROGRAM v1.5 ***\r\n");
+	printf("************************\r\n");
 	printf("\r\n");
 
 	class1 koe;
