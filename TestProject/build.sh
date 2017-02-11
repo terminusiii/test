@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "**********************"
 echo "Builds app and app.exe"
-echo "v1.6                  "
+echo "v1.7                  "
 echo "**********************"
 make -f Makefile clean
 make -f Makefile

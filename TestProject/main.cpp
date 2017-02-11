@@ -116,7 +116,7 @@ void waitForCommand() {
 int main() {
 
 	printf("************************\r\n");
-	printf("*** THE PROGRAM v1.6 ***\r\n");
+	printf("*** THE PROGRAM v1.7 ***\r\n");
 	printf("************************\r\n");
 	printf("\r\n");
 
