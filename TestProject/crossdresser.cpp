@@ -1,5 +1,7 @@
 #include <string>
 #include <stdio.h>
+#include <map>
+#include <vector>
 
 #include "crossdresser.h"
 
@@ -17,6 +19,21 @@ Crossdresser::Crossdresser()
 	clothes.push_back("Lindex scarf");
 	clothes.push_back("Stockman cap");
 	clothes.push_back("Red H&M mens underwear");
+
+	clothesSets["basic"] = clothes;
+
+	ClothesList nude;
+	nude.push_back("LIDL womens underwear");
+
+	clothesSets["nude"] = nude;
+
+	ClothesList skiing;
+	skiing.push_back("Halti blue skiing jacket");
+	skiing.push_back("Blue skiing trousers");
+	skiing.push_back("Light blue HH cap");
+	skiing.push_back("Neon yellow green technical underwear");
+
+	clothesSets["skiing"] = skiing;
 }
 
 string Crossdresser::Speak()
@@ -30,7 +47,41 @@ string Crossdresser::Speak()
 	ageSentence = ageSentenceChar;
 
 	// Clothes
-	string clothesSentence = "I am wearing ";
+	string clothesSentence = "Now I am wearing ";
+
+	clothesSentence += ClothesToString(clothes);
+	clothesSentence += ".";
+
+	string nudeClothesSentence = "When nude I wear ";
+
+	nudeClothesSentence += ClothesToString(clothesSets["nude"]);
+	nudeClothesSentence += ".";
+
+	string skiingClothesSentence = "When skiing I wear ";
+
+	skiingClothesSentence += ClothesToString(clothesSets["skiing"]);
+	skiingClothesSentence += ".";
+
+	
+	// Output
+	string output;
+
+	output += "My name is " + firstname + " " + lastname + ". \r\n";
+	output += ageSentence;
+	output += "\r\n";
+	output += clothesSentence;
+	output += "\r\n";
+	output += nudeClothesSentence;
+	output += "\r\n";
+	output += skiingClothesSentence;
+
+	return output;
+}
+
+string Crossdresser::ClothesToString(ClothesList clothes)
+{
+	string clothesSentence;
+
 	ClothesList::iterator clothesIter;
 	int clothesCount = 0;
 	
@@ -52,13 +103,5 @@ string Crossdresser::Speak()
 		}
 	}
 
-	// Output
-	string output;
-
-	output += "My name is " + firstname + " " + lastname + ". \r\n";
-	output += ageSentence;
-	output += "\r\n";
-	output += clothesSentence;
-
-	return output;
+	return clothesSentence;	
 }
