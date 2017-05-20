@@ -22,7 +22,7 @@ void testCrossdresser()
 	printf("<- Testing crossdresser \r\n");
 }
 
-void testClass2()
+~void testClass2()
 {
 	printf("Testing Class2 ->\r\n");
 
@@ -149,7 +149,7 @@ void TestLinkedList()
 int main() {
 
 	printf("************************\r\n");
-	printf("*** THE PROGRAM v1.7 ***\r\n");
+	printf("*** THE PROGRAM v1.8 ***\r\n");
 	printf("************************\r\n");
 	printf("\r\n");
 
