@@ -8,6 +8,7 @@
 #include "class1.h"
 #include "class2.h"
 #include "crossdresser.h"
+#include "linkedList.h"
 
 void testCrossdresser()
 {
@@ -113,6 +114,38 @@ void waitForCommand() {
 	}
 }
 
+void TestLinkedList()
+{
+	printf("Testing Linked List\r\n");
+	printf("Adding\r\n");
+
+	LinkedList<int> testA(1);
+	LinkedList<int> testA1(2);
+	
+	testA.Add(&testA1);
+
+	LinkedList<int>* iterA;
+
+	iterA = &testA;
+	int counterA = 0;
+
+	while(iterA){
+		int dataA = iterA->data;
+
+		printf("Item %d : %d \r\n", counterA, dataA);
+
+		iterA = iterA->next;
+		counterA++;
+	}
+
+	printf("Testin printing LinkedList\r\n");
+	
+	printf("TODO. Make this work\r\n");
+	// testA.PrintLinkedList();
+
+	printf("\r\n");
+}
+
 int main() {
 
 	printf("************************\r\n");
@@ -162,7 +195,9 @@ int main() {
 
 	printVector();	
 	printDeque();
+	TestLinkedList();
 
+	
 	printFile(filename);
 	printf("Can you see me\r\n");
 

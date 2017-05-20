@@ -8,8 +8,8 @@ LINK=gcc -static -lpthread
 all : app
 
 # Link object files into a binary
-app : main.o class1.o class2.o crossdresser.o
-	$(LINK) -o app main.o class1.o class2.o crossdresser.o -lstdc++
+app : main.o class1.o class2.o crossdresser.o linkedList.o
+	$(LINK) -o app main.o class1.o class2.o crossdresser.o linkedList.o -lstdc++
 
 # Compile the source file to object files
 main.o : main.cpp
@@ -24,7 +24,10 @@ class2.o : class2.cpp
 crossdresser.o : crossdresser.cpp
 	$(CC) -c crossdresser.cpp -o crossdresser.o
 
+linkedList.o : linkedList.cpp
+	$(CC) -c linkedList.cpp -o linkedList.o
+
 # Clean target
 .PHONY : clean
 clean :
-	rm main.o class1.o class2.o crossdresser.o app
+	rm main.o class1.o class2.o crossdresser.o linkedList.o app

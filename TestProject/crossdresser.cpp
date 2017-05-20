@@ -9,7 +9,7 @@ using namespace std;
 
 Crossdresser::Crossdresser()
 {
-	firstname = "Jean";
+	firstname = "Melinda";
         lastname = "Ping";
 	age = 42;
 
@@ -24,6 +24,7 @@ Crossdresser::Crossdresser()
 
 	ClothesList nude;
 	nude.push_back("LIDL womens underwear");
+	nude.push_back("Special trade E-cup black lace bra");
 
 	clothesSets["nude"] = nude;
 
